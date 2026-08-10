@@ -60,6 +60,31 @@ const nextConfig = {
         destination: `/artists/${slug}`,
         permanent: true,
       })),
+      // Squarespace auto-generated tag/category archive pages — no
+      // equivalent on the new site, send them to the magazine index
+      // instead of leaving a 404.
+      {
+        source: "/magazine/tag/:tag*",
+        destination: "/magazine",
+        permanent: true,
+      },
+      // Stray old Squarespace URLs (an alternate homepage slug, an unused
+      // draft page) turning up in Search Console's 404 report.
+      {
+        source: "/home",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/home-1",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/new-page",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };
