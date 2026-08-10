@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fafaf8;
+  --foreground: #0a0a0a;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    @apply font-serif italic font-light tracking-wide;
+  }
+
+  a {
+    @apply transition-colors duration-400;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Shared editorial section padding */
+  .section-x {
+    @apply px-6 md:px-12 lg:px-20;
+  }
+
+  .eyebrow {
+    @apply font-sans font-light uppercase tracking-widest text-xs text-stone;
+  }
+}
