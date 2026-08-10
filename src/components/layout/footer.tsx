@@ -54,10 +54,24 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="section-x mx-auto w-full max-w-content border-t border-mist py-6">
+      <div className="section-x mx-auto flex w-full max-w-content flex-wrap items-center justify-between gap-4 border-t border-mist py-6">
         <p className="font-sans text-xs font-light tracking-wide text-stone">
           © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
         </p>
+        <div className="flex gap-6">
+          <Link
+            href="/privacy-policy"
+            className="font-sans text-xs font-light tracking-wide text-stone hover:text-ink"
+          >
+            Privacy Policy
+          </Link>
+          <Link
+            href="/terms-and-conditions"
+            className="font-sans text-xs font-light tracking-wide text-stone hover:text-ink"
+          >
+            Terms &amp; Conditions
+          </Link>
+        </div>
       </div>
     </footer>
   );
