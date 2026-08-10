@@ -18,6 +18,7 @@ export const metadata: Metadata = pageMetadata({
   title: siteConfig.title,
   description: siteConfig.description,
   path: "/",
+  absoluteTitle: true,
 });
 
 export const revalidate = 120;

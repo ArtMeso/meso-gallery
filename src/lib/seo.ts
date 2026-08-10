@@ -6,14 +6,19 @@ export function pageMetadata({
   description,
   path,
   images,
+  absoluteTitle = false,
 }: {
   title: string;
   description: string;
   path: string;
   images?: { url: string; width?: number; height?: number }[];
+  // Skip the root layout's "%s — MeSo Ventures" template — use when `title`
+  // is already the complete title (e.g. the homepage, where siteConfig.title
+  // already ends in "— MeSo Ventures").
+  absoluteTitle?: boolean;
 }): Metadata {
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: { canonical: path },
     openGraph: {
