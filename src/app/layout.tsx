@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { cormorant, sans } from "@/lib/fonts";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
@@ -60,6 +61,9 @@ export default function RootLayout({
         />
         {children}
       </body>
+      {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ? (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+      ) : null}
     </html>
   );
 }

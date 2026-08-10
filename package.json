@@ -11,6 +11,7 @@
     "seed:articles": "node scripts/seed-articles.mjs"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.35",
     "@portabletext/react": "^6.2.0",
     "@sanity/client": "^7.23.0",
     "@sanity/image-url": "^2.1.1",
