@@ -1,7 +1,7 @@
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import type { PortableTextBlock } from "sanity";
 import Image from "next/image";
-import { urlForImage } from "@/sanity/image";
+import { imageDimensions, urlForImage } from "@/sanity/image";
 
 const components: PortableTextComponents = {
   block: {
@@ -39,17 +39,24 @@ const components: PortableTextComponents = {
     ),
   },
   types: {
-    image: ({ value }) => (
-      <div className="relative my-8 aspect-[4/3] w-full overflow-hidden bg-card">
-        <Image
-          src={urlForImage(value).width(1200).url()}
-          alt={value.alt || ""}
-          fill
-          sizes="(min-width: 768px) 700px, 100vw"
-          className="object-cover"
-        />
-      </div>
-    ),
+    image: ({ value }) => {
+      const dims = imageDimensions(value);
+      return (
+        <div
+          className="relative my-8 w-full overflow-hidden bg-card"
+          style={{ aspectRatio: dims ? `${dims.width} / ${dims.height}` : "4 / 3" }}
+        >
+          <Image
+            src={urlForImage(value).width(2000).quality(90).url()}
+            alt={value.alt || ""}
+            fill
+            sizes="(min-width: 768px) 700px, 100vw"
+            className="object-contain"
+            quality={90}
+          />
+        </div>
+      );
+    },
   },
   list: {
     bullet: ({ children }) => (
