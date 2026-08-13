@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 import { RichText } from "@/components/portable-text";
 import { sanityFetch } from "@/sanity/fetch";
 import { articleBySlugQuery } from "@/sanity/queries";
-import { urlForImage } from "@/sanity/image";
+import { imageDimensions, urlForImage } from "@/sanity/image";
 import type { ArticleFull } from "@/sanity/types";
 import { siteConfig } from "@/lib/site-config";
 
@@ -50,6 +50,10 @@ export default async function ArticlePage({ params }: Props) {
   const article = await getArticle(params.slug);
   if (!article) notFound();
 
+  const featuredImageDims = article.featuredImage
+    ? imageDimensions(article.featuredImage)
+    : null;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -81,13 +85,21 @@ export default async function ArticlePage({ params }: Props) {
         </p>
 
         {article.featuredImage ? (
-          <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden bg-card">
+          <div
+            className="relative mt-10 w-full overflow-hidden bg-card"
+            style={{
+              aspectRatio: featuredImageDims
+                ? `${featuredImageDims.width} / ${featuredImageDims.height}`
+                : "16 / 9",
+            }}
+          >
             <Image
-              src={urlForImage(article.featuredImage).width(1600).height(900).url()}
+              src={urlForImage(article.featuredImage).width(2000).quality(90).url()}
               alt={article.title}
               fill
               sizes="(min-width: 768px) 700px, 100vw"
-              className="object-cover"
+              className="object-contain"
+              quality={90}
               priority
             />
           </div>
