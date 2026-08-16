@@ -85,6 +85,13 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      // Former roster artist, dropped before the migration — no page to
+      // send this to, so land on the roster index instead of a 404.
+      {
+        source: "/rex-southwick",
+        destination: "/artists",
+        permanent: true,
+      },
     ];
   },
 };
