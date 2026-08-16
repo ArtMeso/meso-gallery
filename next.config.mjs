@@ -92,6 +92,14 @@ const nextConfig = {
         destination: "/artists",
         permanent: true,
       },
+      // Old Squarespace India Art Fair recap page, flagged in Search
+      // Console for a Squarespace video embed that Google can't index
+      // (blob: URL). Superseded by the current article.
+      {
+        source: "/india-art-fair-delhi",
+        destination: "/magazine/india-art-fair-2026-new-delhi-art-week-delhi-2026",
+        permanent: true,
+      },
     ];
   },
 };
