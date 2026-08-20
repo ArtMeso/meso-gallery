@@ -37,7 +37,7 @@ export function ModalShell({ children }: { children: React.ReactNode }) {
           type="button"
           aria-label="Close"
           onClick={close}
-          className="absolute right-6 top-6 font-sans text-xs font-light uppercase tracking-widest text-ink/70 hover:text-ink"
+          className="absolute right-6 top-6 z-10 font-sans text-xs font-light uppercase tracking-widest text-ink/70 hover:text-ink"
         >
           Close ✕
         </button>
