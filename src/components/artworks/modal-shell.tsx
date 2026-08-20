@@ -22,7 +22,10 @@ export function ModalShell({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-ink/60 p-4 py-12 sm:p-8">
+    <div
+      className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-ink/60 p-4 pb-12 sm:p-8"
+      style={{ paddingTop: "max(6rem, calc(3rem + env(safe-area-inset-top)))" }}
+    >
       <button
         type="button"
         aria-label="Close"

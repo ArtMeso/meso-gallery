@@ -39,9 +39,12 @@ export function mailtoHref(options: {
   body?: string;
   to?: string;
 }) {
-  const params = new URLSearchParams();
-  if (options.subject) params.set("subject", options.subject);
-  if (options.body) params.set("body", options.body);
-  const query = params.toString();
+  // mailto: is a URI, not a form submission — encodeURIComponent (%20 for
+  // spaces) is correct here. URLSearchParams encodes spaces as "+", which
+  // mail clients treat as a literal plus sign, not a space.
+  const parts: string[] = [];
+  if (options.subject) parts.push(`subject=${encodeURIComponent(options.subject)}`);
+  if (options.body) parts.push(`body=${encodeURIComponent(options.body)}`);
+  const query = parts.join("&");
   return `mailto:${options.to ?? siteConfig.email}${query ? `?${query}` : ""}`;
 }
