@@ -3,7 +3,7 @@ export const siteConfig = {
   title: "MeSo Ventures — Contemporary Art Gallery & Advisory",
   description:
     "MeSo Ventures is an international contemporary art gallery and advisory platform based in London and Dubai, representing emerging and established artists and advising collectors across the UK, UAE and India on acquisition, investment and private sale.",
-  url: "https://mesoventures.com",
+  url: "https://www.mesoventures.com",
   email: "art@mesoventures.com",
   instagram: "https://www.instagram.com/mesoventures",
   instagramHandle: "@mesoventures",
