@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { cormorant, sans } from "@/lib/fonts";
-import { siteConfig } from "@/lib/site-config";
+import { founder, siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,6 +27,10 @@ export const metadata: Metadata = {
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
+  // Stable @id so the Person markup on /about, and any future Article author
+  // or Service provider references, all point at this same node instead of
+  // creating a fresh unnamed Organization on every page.
+  "@id": `${siteConfig.url}/#organization`,
   "@type": "Organization",
   name: siteConfig.name,
   url: siteConfig.url,
@@ -34,6 +38,13 @@ const organizationJsonLd = {
   email: siteConfig.email,
   logo: `${siteConfig.url}/opengraph-image`,
   sameAs: [siteConfig.instagram],
+  founder: {
+    "@type": "Person",
+    "@id": `${siteConfig.url}/about#founder`,
+    name: founder.name,
+    jobTitle: founder.jobTitle,
+  },
+  knowsAbout: [...siteConfig.expertise],
   location: siteConfig.locations.map((location) => ({
     "@type": "Place",
     name: location,

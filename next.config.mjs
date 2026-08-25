@@ -100,6 +100,48 @@ const nextConfig = {
         destination: "/magazine/india-art-fair-2026-new-delhi-art-week-delhi-2026",
         permanent: true,
       },
+      // Standalone exhibition pages from the old site. There is no exhibition
+      // route on the new site (the `exhibition` Sanity type is registered but
+      // has no documents and nothing renders it), and the editorial coverage
+      // is better contextualised than a bare exhibition page would be, so
+      // these point at the articles that already carry the content rather
+      // than being rebuilt.
+      {
+        // The India Art Fair diary carries a full "Gesture of Memories"
+        // section — heading, description and all.
+        source: "/gesture-of-memories",
+        destination: "/magazine/india-art-fair-2026-new-delhi-art-week-delhi-2026",
+        permanent: true,
+      },
+      {
+        source: "/the-mythologies-of-colour-soho-house-mumbai",
+        destination: "/magazine/mythologies-of-colour-soho-house-mumbai-2026",
+        permanent: true,
+      },
+      {
+        // No article covers this show specifically, so it lands on the
+        // magazine index. Retarget if the matching piece is written.
+        source: "/seams-veils-bodies-archives-and-the-threshold-of-seeing",
+        destination: "/magazine",
+        permanent: true,
+      },
+      // Artists dropped from the roster (/mohini-kaur, /naira-mushtaq) are
+      // deliberately NOT redirected — they return 410 Gone from
+      // src/middleware.ts so Google drops them from the index rather than
+      // following a redirect to a roster that no longer lists them.
+      //
+      // Squarespace tag and category archives under the old news section.
+      // The section itself already redirects above; these sub-paths didn't.
+      {
+        source: "/news-and-press/tag/:tag*",
+        destination: "/magazine",
+        permanent: true,
+      },
+      {
+        source: "/news-and-press/category/:category*",
+        destination: "/magazine",
+        permanent: true,
+      },
     ];
   },
 };

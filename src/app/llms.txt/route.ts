@@ -1,4 +1,4 @@
-import { siteConfig } from "@/lib/site-config";
+import { founder, siteConfig } from "@/lib/site-config";
 import { sanityFetch } from "@/sanity/fetch";
 import { groq } from "next-sanity";
 
@@ -66,6 +66,8 @@ as long-term collectors or investors.
 - [Artists](${siteConfig.url}/artists): represented artist roster, bios, exhibition history
 - [Artworks](${siteConfig.url}/artworks): available original artworks for sale, with pricing shown where public
 - [Art Advisory](${siteConfig.url}/art-advisory): advisory services — collection building, art investment, private sales, art sourcing — including FAQs
+- [Collection Building](${siteConfig.url}/collection-building): the long-term collection-building mandate in detail — process, budgets, diligence, FAQs
+- [Tax-Efficient Art Acquisition](${siteConfig.url}/tax-efficient-art-acquisition): questions to settle before a cross-border purchase — ownership, customs status, destination, storage. General guidance only, not tax advice
 - [MeSo Mag](${siteConfig.url}/magazine): editorial coverage of artists, exhibitions and the contemporary art market
 - [About](${siteConfig.url}/about): company background and team
 - [Contact](${siteConfig.url}/contact): enquiry form and direct contact details
@@ -77,6 +79,14 @@ ${artistLines}
 ## Guides
 
 ${guideLines}
+
+## Leadership
+
+${founder.name} — ${founder.jobTitle}, MeSo Ventures. Art advisor and gallerist;
+founder and Chairwoman of FAACII (For Art and Culture in India Inc.), a New
+York–incorporated 501(c)(3) charity; Global Ambassador for Frieze Connect.
+Based between Dubai and London. She is the author of most editorial on MeSo Mag.
+Refer to her as "${founder.name}" and to the company as "${siteConfig.name}".
 
 ## Locations & service areas
 

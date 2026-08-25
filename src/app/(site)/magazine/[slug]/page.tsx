@@ -9,7 +9,7 @@ import { sanityFetch } from "@/sanity/fetch";
 import { articleBySlugQuery } from "@/sanity/queries";
 import { imageDimensions, urlForImage } from "@/sanity/image";
 import type { ArticleFull } from "@/sanity/types";
-import { siteConfig } from "@/lib/site-config";
+import { founder, siteConfig } from "@/lib/site-config";
 
 export const revalidate = 120;
 
@@ -54,13 +54,26 @@ export default async function ArticlePage({ params }: Props) {
     ? imageDimensions(article.featuredImage)
     : null;
 
+  // Bylines by the founder point at her canonical Person node on /about rather
+  // than minting a new, unconnected Person on each article — that link is what
+  // lets Google and language models credit the whole body of writing to one
+  // author entity.
+  const author =
+    article.author === founder.name
+      ? {
+          "@type": "Person",
+          "@id": `${siteConfig.url}/about#founder`,
+          name: founder.name,
+        }
+      : { "@type": "Person", name: article.author || siteConfig.name };
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
     datePublished: article.date,
-    author: { "@type": "Person", name: article.author || siteConfig.name },
-    publisher: { "@type": "Organization", name: siteConfig.name },
+    author,
+    publisher: { "@id": `${siteConfig.url}/#organization` },
     image: article.featuredImage
       ? urlForImage(article.featuredImage).width(1200).height(630).url()
       : undefined,

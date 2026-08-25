@@ -18,11 +18,16 @@ export const metadata: Metadata = pageMetadata({
   path: "/art-advisory",
 });
 
-const services = [
+const services: {
+  title: string;
+  description: string;
+  href?: string;
+}[] = [
   {
     title: "Collection Building",
     description:
       "We work alongside collectors over the long term, developing a considered acquisition strategy shaped by your taste, budget and ambitions — from a first purchase to a museum-calibre collection.",
+    href: "/collection-building",
   },
   {
     title: "Art Investment",
@@ -76,6 +81,21 @@ const faqs: { question: string; answer: string; answerNode?: ReactNode }[] = [
     question: "Which cities and regions do you serve?",
     answer:
       "We're based in London and Dubai, and advise clients across the United Kingdom, the United Arab Emirates and India. Cross-border shipping, customs and installation are handled as part of the service.",
+    answerNode: (
+      <>
+        We&apos;re based in London and Dubai, and advise clients across the
+        United Kingdom, the United Arab Emirates and India. Cross-border
+        shipping, customs and installation are handled as part of the service —
+        our guide to{" "}
+        <Link
+          href="/tax-efficient-art-acquisition"
+          className="underline underline-offset-4 hover:text-ink"
+        >
+          tax-efficient art acquisition
+        </Link>{" "}
+        sets out the questions worth settling before a work crosses a border.
+      </>
+    ),
   },
   {
     question: "How much does art advisory cost?",
@@ -131,11 +151,27 @@ export default function ArtAdvisoryPage() {
           {services.map((service) => (
             <div key={service.title}>
               <h2 className="font-serif text-2xl italic font-light text-ink">
-                {service.title}
+                {service.href ? (
+                  <Link href={service.href} className="hover:text-ink/70">
+                    {service.title}
+                  </Link>
+                ) : (
+                  service.title
+                )}
               </h2>
               <p className="mt-4 font-sans text-sm font-light leading-relaxed text-ink/70">
                 {service.description}
               </p>
+              {service.href ? (
+                <p className="mt-3">
+                  <Link
+                    href={service.href}
+                    className="font-sans text-sm font-light underline underline-offset-4 text-ink/70 hover:text-ink"
+                  >
+                    How we build collections
+                  </Link>
+                </p>
+              ) : null}
             </div>
           ))}
         </div>

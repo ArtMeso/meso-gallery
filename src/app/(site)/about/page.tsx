@@ -1,7 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
-import { siteConfig } from "@/lib/site-config";
+import { founder, siteConfig } from "@/lib/site-config";
 import { pageMetadata } from "@/lib/seo";
 import { sanityFetch } from "@/sanity/fetch";
 import { teamMembersQuery } from "@/sanity/queries";
@@ -22,8 +23,35 @@ export default async function AboutPage() {
     query: teamMembersQuery,
   }).catch(() => []);
 
+  // Resolve the founder's own entry so the Person markup carries her real bio
+  // and portrait rather than a second, hand-maintained copy of them. Matching
+  // on the name in site-config keeps the two in step.
+  const founderMember = team.find((member) => member.name === founder.name);
+
+  const founderJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    // Same @id the Organization's `founder` property points at, so both
+    // descriptions resolve to one entity instead of two similar-looking ones.
+    "@id": `${siteConfig.url}/about#founder`,
+    name: founder.name,
+    jobTitle: founderMember?.role || founder.jobTitle,
+    description: founderMember?.bio,
+    image: founderMember?.portrait
+      ? urlForImage(founderMember.portrait).width(600).height(600).url()
+      : undefined,
+    url: `${siteConfig.url}/about`,
+    sameAs: [...founder.sameAs],
+    worksFor: { "@id": `${siteConfig.url}/#organization` },
+    knowsAbout: [...siteConfig.expertise],
+  };
+
   return (
     <div className="py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(founderJsonLd) }}
+      />
       <Container className="max-w-3xl">
         <p className="eyebrow mb-4">About</p>
         <h1 className="font-serif text-4xl italic font-light text-ink sm:text-5xl">
@@ -106,9 +134,22 @@ export default async function AboutPage() {
               short-term speculation.
             </p>
             <p>
-              Whether you are acquiring your first work or building a
-              considered collection over decades, our role is to bring
-              clarity, access and independent judgement to every decision.
+              Whether you are acquiring your first work or{" "}
+              <Link
+                href="/collection-building"
+                className="underline underline-offset-4 hover:text-ink"
+              >
+                building a considered collection
+              </Link>{" "}
+              over decades, our role is to bring clarity, access and
+              independent judgement to every decision. Read more about our{" "}
+              <Link
+                href="/art-advisory"
+                className="underline underline-offset-4 hover:text-ink"
+              >
+                art advisory services
+              </Link>
+              .
             </p>
           </div>
         </div>

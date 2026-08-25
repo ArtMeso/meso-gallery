@@ -19,6 +19,32 @@ export const siteConfig = {
   // without claiming a physical office — used for Organization.areaServed
   // in structured data and general copy. Update if this changes.
   serviceAreas: ["United Kingdom", "United Arab Emirates", "India"],
+  // Subjects the gallery and advisory are actually authoritative on. Feeds
+  // Organization.knowsAbout, which is one of the few signals that tells a
+  // search engine or a language model what this entity is *for*, rather than
+  // just what it is called.
+  expertise: [
+    "Contemporary art",
+    "Art advisory",
+    "Art collection building",
+    "Art investment",
+    "South Asian art",
+    "Indian Modern Masters",
+    "Private art sales",
+  ],
+} as const;
+
+// Named once here so the Organization markup, the Person markup on /about and
+// any future author bylines all describe the same entity with the same strings.
+// Inconsistent naming ("MeSo", "Meso Ventures Ltd", "Eirini") is what stops
+// Google and language models from resolving these as single entities.
+export const founder = {
+  name: "Eirini Meze",
+  jobTitle: "Founder & Director",
+  // Only verified, first-party profiles belong in sameAs — a wrong URL here
+  // actively harms entity resolution. Add LinkedIn/Frieze profiles once their
+  // canonical URLs are confirmed.
+  sameAs: ["https://www.faacii.org/"],
 } as const;
 
 export const navLinks = [

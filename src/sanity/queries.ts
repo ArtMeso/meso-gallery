@@ -41,6 +41,15 @@ export const allArtistSlugsQuery = groq`
   *[_type == "artist" && defined(slug.current)][].slug.current
 `;
 
+// Sitemap needs the real edit timestamp alongside the slug: a <lastmod> that
+// says "today" on every URL every day is a signal Google learns to discount.
+export const artistSitemapEntriesQuery = groq`
+  *[_type == "artist" && defined(slug.current)] {
+    "slug": slug.current,
+    _updatedAt
+  }
+`;
+
 export const articleCardFields = groq`
   _id,
   title,
@@ -78,6 +87,13 @@ export const articleBySlugQuery = groq`
 
 export const allArticleSlugsQuery = groq`
   *[_type == "article" && defined(slug.current)][].slug.current
+`;
+
+export const articleSitemapEntriesQuery = groq`
+  *[_type == "article" && defined(slug.current)] {
+    "slug": slug.current,
+    _updatedAt
+  }
 `;
 
 export const teamMembersQuery = groq`
