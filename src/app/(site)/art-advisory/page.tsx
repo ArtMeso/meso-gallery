@@ -6,10 +6,15 @@ import { Button } from "@/components/ui/button";
 import { mailtoHref } from "@/lib/site-config";
 import { pageMetadata } from "@/lib/seo";
 
+// Title and description target the queries this page already surfaces for in
+// Search Console — "art acquisition consultancy", "investment art advisory",
+// "private art investment consultant", "family office services for
+// multi-generational art collectors" — rather than the generic "Art Advisory",
+// which matched none of them and left most of the title slot unused.
 export const metadata: Metadata = pageMetadata({
-  title: "Art Advisory",
+  title: "Art Investment Advisory & Acquisition Consultancy",
   description:
-    "MeSo Ventures Art Advisory — Collection Building, Art Investment, Private Sales, Art Sourcing and help choosing contemporary art for your home, for collectors and buyers across London, Dubai, the wider UAE and India.",
+    "Art investment advisory for private collectors and family offices — acquisition strategy, valuation, provenance and private sales across London, Dubai and India.",
   path: "/art-advisory",
 });
 
