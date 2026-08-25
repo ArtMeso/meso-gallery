@@ -3,7 +3,10 @@ export const siteConfig = {
   title: "MeSo Ventures — Contemporary Art Gallery & Advisory",
   description:
     "MeSo Ventures is an international contemporary art gallery and advisory platform based in London and Dubai, representing emerging and established artists and advising collectors across the UK, UAE and India on acquisition, investment and private sale.",
-  url: "https://www.mesoventures.com",
+  // Apex, not www: the host redirects www -> apex (308), so canonical tags,
+  // OG urls, sitemap entries and robots.txt must all name the apex or they
+  // point Google at a URL that redirects away.
+  url: "https://mesoventures.com",
   email: "art@mesoventures.com",
   instagram: "https://www.instagram.com/mesoventures",
   instagramHandle: "@mesoventures",
