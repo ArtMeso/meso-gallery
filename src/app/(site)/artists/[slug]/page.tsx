@@ -15,6 +15,7 @@ import type { ArtistFull } from "@/sanity/types";
 import { getArtworksByArtistName } from "@/lib/artworks";
 import { mailtoHref, siteConfig } from "@/lib/site-config";
 import { pageMetadata } from "@/lib/seo";
+import { sortByDateField, sortByYearField, sortCvLines } from "@/lib/cv-sort";
 
 export const revalidate = 120;
 
@@ -115,7 +116,7 @@ export default async function ArtistPage({ params }: Props) {
               <div className="mt-8">
                 <p className="eyebrow mb-3">Education</p>
                 <ul className="space-y-1 font-sans text-sm font-light text-ink/70">
-                  {artist.education.map((entry) => (
+                  {sortCvLines(artist.education).map((entry) => (
                     <li key={entry}>{entry}</li>
                   ))}
                 </ul>
@@ -126,7 +127,7 @@ export default async function ArtistPage({ params }: Props) {
               <div className="mt-8">
                 <p className="eyebrow mb-3">Awards &amp; Residencies</p>
                 <ul className="space-y-1 font-sans text-sm font-light text-ink/70">
-                  {artist.awards.map((entry) => (
+                  {sortCvLines(artist.awards).map((entry) => (
                     <li key={entry}>{entry}</li>
                   ))}
                 </ul>
@@ -137,7 +138,7 @@ export default async function ArtistPage({ params }: Props) {
               <div className="mt-8">
                 <p className="eyebrow mb-3">Teaching &amp; Academic Engagement</p>
                 <ul className="space-y-1 font-sans text-sm font-light text-ink/70">
-                  {artist.teaching.map((entry) => (
+                  {sortCvLines(artist.teaching).map((entry) => (
                     <li key={entry}>{entry}</li>
                   ))}
                 </ul>
@@ -186,7 +187,9 @@ export default async function ArtistPage({ params }: Props) {
                 ["Group", "Group Shows"],
               ] as const
             ).map(([type, heading]) => {
-              const entries = artist.exhibitions!.filter((entry) => entry.type === type);
+              const entries = sortByYearField(
+                artist.exhibitions!.filter((entry) => entry.type === type)
+              );
               if (entries.length === 0) return null;
               return (
                 <div key={type} className="mb-10 last:mb-0">
@@ -206,8 +209,10 @@ export default async function ArtistPage({ params }: Props) {
               );
             })}
             {(() => {
-              const untyped = artist.exhibitions!.filter(
-                (entry) => entry.type !== "Solo" && entry.type !== "Group"
+              const untyped = sortByYearField(
+                artist.exhibitions!.filter(
+                  (entry) => entry.type !== "Solo" && entry.type !== "Group"
+                )
               );
               if (untyped.length === 0) return null;
               return (
@@ -236,12 +241,7 @@ export default async function ArtistPage({ params }: Props) {
               Press &amp; Publications
             </h2>
             <ul className="space-y-4 font-sans text-sm font-light text-ink/70">
-              {[...artist.press]
-                .sort((a, b) => {
-                  if (!a.date) return 1;
-                  if (!b.date) return -1;
-                  return b.date.localeCompare(a.date);
-                })
+              {sortByDateField(artist.press)
                 .map((entry, i) => (
                   <li key={i}>
                     {entry.url ? (
