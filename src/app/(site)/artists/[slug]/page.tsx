@@ -225,24 +225,30 @@ export default async function ArtistPage({ params }: Props) {
               Press &amp; Publications
             </h2>
             <ul className="space-y-4 font-sans text-sm font-light text-ink/70">
-              {artist.press.map((entry, i) => (
-                <li key={i}>
-                  {entry.url ? (
-                    <a
-                      href={entry.url}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="hover:text-ink underline underline-offset-4"
-                    >
-                      {entry.title}
-                    </a>
-                  ) : (
-                    <span>{entry.title}</span>
-                  )}
-                  {entry.publication ? `, ${entry.publication}` : ""}
-                  {entry.date ? ` — ${format(new Date(entry.date), "yyyy")}` : ""}
-                </li>
-              ))}
+              {[...artist.press]
+                .sort((a, b) => {
+                  if (!a.date) return 1;
+                  if (!b.date) return -1;
+                  return b.date.localeCompare(a.date);
+                })
+                .map((entry, i) => (
+                  <li key={i}>
+                    {entry.url ? (
+                      <a
+                        href={entry.url}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="hover:text-ink underline underline-offset-4"
+                      >
+                        {entry.title}
+                      </a>
+                    ) : (
+                      <span>{entry.title}</span>
+                    )}
+                    {entry.publication ? `, ${entry.publication}` : ""}
+                    {entry.date ? ` — ${format(new Date(entry.date), "yyyy")}` : ""}
+                  </li>
+                ))}
             </ul>
           </div>
         ) : null}
