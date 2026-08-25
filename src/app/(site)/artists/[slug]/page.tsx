@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { format } from "date-fns";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -146,6 +147,16 @@ export default async function ArtistPage({ params }: Props) {
             <Button href={enquireHref} variant="solid" className="mt-10">
               Enquire
             </Button>
+            <p className="mt-4 font-sans text-xs font-light text-ink/50">
+              New to collecting?{" "}
+              <Link
+                href="/magazine/how-to-start-an-art-collection"
+                className="underline underline-offset-4 hover:text-ink"
+              >
+                Read our guide to starting an art collection
+              </Link>
+              .
+            </p>
           </div>
         </div>
 

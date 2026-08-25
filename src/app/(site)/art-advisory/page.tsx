@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { mailtoHref } from "@/lib/site-config";
@@ -34,7 +36,7 @@ const services = [
   },
 ];
 
-const faqs = [
+const faqs: { question: string; answer: string; answerNode?: ReactNode }[] = [
   {
     question: "What does an art advisory service actually do?",
     answer:
@@ -43,7 +45,22 @@ const faqs = [
   {
     question: "Do I need to already be a collector to work with you?",
     answer:
-      "No. We work with first-time buyers furnishing a single room as often as we do with established collectors building a museum-calibre collection — the process simply scales to your ambitions and budget.",
+      "No. We work with first-time buyers furnishing a single room as often as we do with established collectors building a museum-calibre collection — the process simply scales to your ambitions and budget. If you're just starting out, our guide to starting an art collection is a good place to begin.",
+    answerNode: (
+      <>
+        No. We work with first-time buyers furnishing a single room as often
+        as we do with established collectors building a museum-calibre
+        collection — the process simply scales to your ambitions and budget.
+        If you&apos;re just starting out, our{" "}
+        <Link
+          href="/magazine/how-to-start-an-art-collection"
+          className="underline underline-offset-4 hover:text-ink"
+        >
+          guide to starting an art collection
+        </Link>{" "}
+        is a good place to begin.
+      </>
+    ),
   },
   {
     question: "Can you help me choose art for my home or apartment, not just as an investment?",
@@ -130,7 +147,7 @@ export default function ArtAdvisoryPage() {
                 {faq.question}
               </h3>
               <p className="mt-3 font-sans text-sm font-light leading-relaxed text-ink/70">
-                {faq.answer}
+                {faq.answerNode ?? faq.answer}
               </p>
             </div>
           ))}

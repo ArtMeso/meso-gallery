@@ -74,6 +74,24 @@ export const article = defineType({
       of: [{ type: "reference", to: [{ type: "artist" }] }],
     }),
     defineField({
+      name: "faq",
+      title: "FAQ",
+      description:
+        "Optional Q&A section rendered at the end of the article with FAQPage structured data — good for guide-style articles that target question-shaped searches.",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          name: "faqEntry",
+          fields: [
+            defineField({ name: "question", type: "string", validation: (rule) => rule.required() }),
+            defineField({ name: "answer", type: "text", rows: 3, validation: (rule) => rule.required() }),
+          ],
+          preview: { select: { title: "question" } },
+        },
+      ],
+    }),
+    defineField({
       name: "seo",
       title: "SEO",
       type: "object",

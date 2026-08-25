@@ -58,9 +58,12 @@ export type ArticleCard = {
   featuredImage?: Image;
 };
 
+export type FaqEntry = { question: string; answer: string };
+
 export type ArticleFull = ArticleCard & {
   body?: PortableTextBlock[];
   seo?: { metaTitle?: string; metaDescription?: string };
+  faq?: FaqEntry[];
   relatedArtists?: ArtistCard[];
 };
 

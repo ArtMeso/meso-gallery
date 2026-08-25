@@ -68,12 +68,31 @@ export default async function ArticlePage({ params }: Props) {
     mainEntityOfPage: `${siteConfig.url}/magazine/${article.slug}`,
   };
 
+  const faqJsonLd =
+    article.faq && article.faq.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: article.faq.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        }
+      : null;
+
   return (
     <article className="py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      ) : null}
       <Container className="max-w-3xl">
         <p className="eyebrow mb-4">{article.category}</p>
         <h1 className="font-serif text-4xl italic font-light text-ink sm:text-5xl">
@@ -108,6 +127,24 @@ export default async function ArticlePage({ params }: Props) {
         {article.body ? (
           <div className="mt-10">
             <RichText value={article.body} />
+          </div>
+        ) : null}
+
+        {article.faq && article.faq.length > 0 ? (
+          <div className="mt-16 border-t border-mist pt-10">
+            <p className="eyebrow mb-6">Frequently Asked Questions</p>
+            <div className="space-y-8">
+              {article.faq.map((faq) => (
+                <div key={faq.question}>
+                  <h3 className="font-sans text-sm font-medium uppercase tracking-wide text-ink">
+                    {faq.question}
+                  </h3>
+                  <p className="mt-3 font-sans text-sm font-light leading-relaxed text-ink/70">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         ) : null}
 

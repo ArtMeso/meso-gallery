@@ -69,6 +69,7 @@ export const articleBySlugQuery = groq`
     ${articleCardFields},
     body,
     seo,
+    faq,
     relatedArtists[]-> {
       ${artistCardFields}
     }
