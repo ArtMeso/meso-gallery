@@ -109,6 +109,49 @@ const faqs: { question: string; answer: string; answerNode?: ReactNode }[] = [
   },
 ];
 
+// Demonstrated experience, which is what this page was missing. It sat at
+// position 18.8 on 817 impressions against agencies that all publish their
+// track record, and for money-adjacent queries Google weighs evidence of real
+// practice heavily.
+//
+// IMPORTANT — Bulgari wording is constrained. We may say we have *hosted
+// exhibitions with* Bulgari in London for artists we represent. We may NOT
+// describe Bulgari as a client, partner, or say we "work with" them. Do not
+// loosen this phrasing.
+//
+// Everything else is drawn verbatim in substance from Eirini's bio in the
+// Sanity team record, so the two never contradict each other.
+const credentials = [
+  {
+    title: "Exhibitions with Bulgari in London",
+    description:
+      "We have hosted exhibitions with Bulgari in London for emerging artists we represent — placing their work in front of an audience most artists at that stage never reach.",
+  },
+  {
+    // Same constrained framing as Bulgari above, at Eirini's instruction:
+    // we state that we have exhibited artists there, not that Soho House is a
+    // partner or client.
+    title: "Exhibitions at Soho House Mumbai",
+    description:
+      "We have exhibited artists we represent at Soho House Mumbai, bringing work by London-based painters in front of collectors in the Indian market.",
+  },
+  {
+    title: "Frieze Connect",
+    description:
+      "Our founder, Eirini Meze, is a Global Ambassador for Frieze Connect, leading the expansion of membership across the Middle East and India and hosting a programme of events for collectors new to the art market.",
+  },
+  {
+    title: "Institutional and charitable practice",
+    description:
+      "Eirini is Founder and Chairwoman of FAACII (For Art and Culture in India Inc.), a New York–incorporated 501(c)(3) public charity advancing India's artistic and cultural heritage. She previously served on the Board of Trustees of the Amelie and Daniel Linsey Foundation in London, curating its annual charity gala and art auction at The Peninsula London, conducted by a Christie's auctioneer.",
+  },
+  {
+    title: "South Asian art and Indian Modern Masters",
+    description:
+      "The advisory sources and privately sells Modern and Contemporary works for collectors in Europe, the Middle East, India and the United States, with particular depth in South Asian art and Indian Modern Masters — an expertise that anchors us between the Western and South Asian markets rather than confining us to either.",
+  },
+];
+
 export default function ArtAdvisoryPage() {
   const enquireHref = mailtoHref({
     subject: "Art Advisory enquiry",
@@ -175,6 +218,40 @@ export default function ArtAdvisoryPage() {
             </div>
           ))}
         </div>
+      </Container>
+
+      <Container className="mt-24 max-w-3xl border-t border-mist pt-16">
+        <h2 className="font-serif text-2xl italic font-light text-ink">
+          Track record
+        </h2>
+        <p className="mt-6 max-w-xl font-sans text-base font-light leading-relaxed text-ink/70">
+          Independent advice is only as good as the practice behind it. Ours
+          runs across the gallery and the advisory at once — representing
+          artists from a first acquisition through to institutional placement,
+          and sourcing privately for collectors across three markets.
+        </p>
+        <div className="mt-12 space-y-10">
+          {credentials.map((item) => (
+            <div key={item.title}>
+              <h3 className="font-serif text-xl italic font-light text-ink">
+                {item.title}
+              </h3>
+              <p className="mt-3 font-sans text-sm font-light leading-relaxed text-ink/70">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-10 font-sans text-sm font-light leading-relaxed text-ink/70">
+          More on our background and approach is on the{" "}
+          <Link
+            href="/about"
+            className="underline underline-offset-4 hover:text-ink"
+          >
+            about page
+          </Link>
+          .
+        </p>
       </Container>
 
       <Container className="mt-24 max-w-3xl border-t border-mist pt-16">
