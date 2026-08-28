@@ -114,10 +114,15 @@ const faqs: { question: string; answer: string; answerNode?: ReactNode }[] = [
 // track record, and for money-adjacent queries Google weighs evidence of real
 // practice heavily.
 //
-// IMPORTANT — Bulgari wording is constrained. We may say we have *hosted
-// exhibitions with* Bulgari in London for artists we represent. We may NOT
-// describe Bulgari as a client, partner, or say we "work with" them. Do not
-// loosen this phrasing.
+// IMPORTANT — the exhibition wording is constrained twice over, and both
+// constraints are easy to break by "improving" the copy:
+//
+//  1. Brand relationship. We may say we have *hosted exhibitions with*
+//     Bulgari, and that we have *exhibited artists at* Soho House Mumbai. We
+//     may NOT call either a client or partner, or say we "work with" them.
+//  2. Artist relationship. Say "artists", not "artists we represent" — the
+//     shows included artists we do not represent (Lydia Hamblet, for one), so
+//     the narrower phrasing would be inaccurate.
 //
 // Everything else is drawn verbatim in substance from Eirini's bio in the
 // Sanity team record, so the two never contradict each other.
@@ -125,15 +130,12 @@ const credentials = [
   {
     title: "Exhibitions with Bulgari in London",
     description:
-      "We have hosted exhibitions with Bulgari in London for emerging artists we represent — placing their work in front of an audience most artists at that stage never reach.",
+      "We have hosted exhibitions with Bulgari in London for emerging artists — placing their work in front of an audience most artists at that stage never reach.",
   },
   {
-    // Same constrained framing as Bulgari above, at Eirini's instruction:
-    // we state that we have exhibited artists there, not that Soho House is a
-    // partner or client.
     title: "Exhibitions at Soho House Mumbai",
     description:
-      "We have exhibited artists we represent at Soho House Mumbai, bringing work by London-based painters in front of collectors in the Indian market.",
+      "We have exhibited artists at Soho House Mumbai, bringing work by London-based painters in front of collectors in the Indian market.",
   },
   {
     title: "Frieze Connect",
