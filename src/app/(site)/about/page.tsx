@@ -81,9 +81,15 @@ export default async function AboutPage() {
             Team
           </h2>
           {team.length > 0 ? (
-            <div className="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2">
+            <div
+              className={
+                team.length > 1
+                  ? "mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2"
+                  : "mt-10 space-y-10"
+              }
+            >
               {team.map((member) => (
-                <div key={member._id} className="flex gap-5">
+                <div key={member._id} className="flex gap-6">
                   {member.portrait ? (
                     <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-card">
                       <Image
@@ -95,7 +101,7 @@ export default async function AboutPage() {
                       />
                     </div>
                   ) : null}
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <p className="font-serif text-lg italic font-light text-ink">
                       {member.name}
                     </p>
@@ -232,7 +238,7 @@ export default async function AboutPage() {
                 />
               </div>
             </div>
-            <p className="mt-5 max-w-xl font-sans text-sm font-light leading-relaxed text-ink/70">
+            <p className="mt-5 font-sans text-sm font-light leading-relaxed text-ink/70">
               &ldquo;Energetic, international, nonstop.&rdquo; —{" "}
               <a
                 href="https://www.frieze.com/article/frieze-connect-member-spotlight-eirini-meze"
@@ -250,47 +256,91 @@ export default async function AboutPage() {
             <p className="font-sans text-xs font-light uppercase tracking-widest text-stone">
               Frieze Connect — organised by Eirini
             </p>
-            <ul className="mt-3 max-w-xl space-y-2 font-sans text-sm font-light leading-relaxed text-ink/70">
-              <li>
+            <div className="mt-4 grid grid-cols-1 gap-8 sm:grid-cols-3">
+              <div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm bg-card">
+                  <Image
+                    src="/events/priya-karani.jpg"
+                    alt="Eirini Meze with Priya Karani and a guest at the New York private collection visit"
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="mt-3 font-sans text-xs font-light uppercase tracking-widest text-stone">
+                  New York — September 2025
+                </p>
                 <a
                   href="https://www.frieze.com/event/new-york-private-collection-visit-priya-karani"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline underline-offset-4 hover:text-ink"
+                  className="mt-1 block font-sans text-sm font-light text-ink underline underline-offset-4 hover:text-ink/70"
                 >
                   Private Collection Visit with Priya Karani
                 </a>
-                , New York — September 2025
-              </li>
-              <li>
+                <p className="mt-1 font-sans text-xs font-light leading-relaxed text-ink/70">
+                  Co-hosted with Frieze Connect, with works by Mary Pye, Xu
+                  Yang and Alicja Kwade.
+                </p>
+              </div>
+              <div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm bg-card">
+                  <Image
+                    src="/events/next-gen-collectors.jpg"
+                    alt="No.9 Cork Street, London, venue for the Next Gen Collectors panel"
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="mt-3 font-sans text-xs font-light uppercase tracking-widest text-stone">
+                  London — June 2026
+                </p>
                 <a
                   href="https://www.frieze.com/event/london-next-gen-collectors-how-become-insider-art-world"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline underline-offset-4 hover:text-ink"
+                  className="mt-1 block font-sans text-sm font-light text-ink underline underline-offset-4 hover:text-ink/70"
                 >
                   Next Gen Collectors: How to Become an Insider
                 </a>
-                , London — June 2026
-              </li>
-              <li>
-                Summer Brunch &amp; Private Walkthrough of{" "}
+                <p className="mt-1 font-sans text-xs font-light leading-relaxed text-ink/70">
+                  Panel with Riccardo Freddo, Dr Ghadah W. Alharthi and Gigi
+                  Surel.
+                </p>
+              </div>
+              <div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm bg-card">
+                  <Image
+                    src="/events/summer-brunch.jpg"
+                    alt="Guests at the Summer Brunch and private walkthrough of What Light Remains at the Bulgari London flagship"
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <p className="mt-3 font-sans text-xs font-light uppercase tracking-widest text-stone">
+                  London — June 2026
+                </p>
                 <Link
                   href="/magazine/meso-ventures-and-bulgari-present-what-light-remains-tiyana-mitchell"
-                  className="underline underline-offset-4 hover:text-ink"
+                  className="mt-1 block font-sans text-sm font-light text-ink underline underline-offset-4 hover:text-ink/70"
                 >
-                  What Light Remains
+                  Summer Brunch &amp; Private Walkthrough
                 </Link>
-                , at the Bulgari London flagship — June 2026
-              </li>
-            </ul>
+                <p className="mt-1 font-sans text-xs font-light leading-relaxed text-ink/70">
+                  What Light Remains by Tiyana Mitchell, at the Bulgari
+                  London flagship.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="mt-10">
             <p className="font-sans text-xs font-light uppercase tracking-widest text-stone">
               Exhibitions with Bulgari in London
             </p>
-            <ul className="mt-3 max-w-xl space-y-2 font-sans text-sm font-light leading-relaxed text-ink/70">
+            <ul className="mt-3 space-y-2 font-sans text-sm font-light leading-relaxed text-ink/70">
               <li>
                 <a
                   href="https://www.blowoutmagazine.com/blowout-art/2025/6/27/bulgari-into-the-future-exhibition-london-with-mary-pye-hosted-meso-ventures"
