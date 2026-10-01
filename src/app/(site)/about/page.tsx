@@ -413,7 +413,7 @@ export default async function AboutPage() {
           <h2 className="font-serif text-2xl italic font-light text-ink">
             Advisory Philosophy
           </h2>
-          <div className="mt-6 max-w-2xl space-y-6 font-sans text-sm font-light leading-relaxed text-ink/70">
+          <div className="mt-6 space-y-6 font-sans text-sm font-light leading-relaxed text-ink/70">
             <p>
               We approach advisory the way we approach curation: with patience,
               context and an insistence on quality over noise. Every
