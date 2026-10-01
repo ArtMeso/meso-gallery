@@ -340,39 +340,72 @@ export default async function AboutPage() {
             <p className="font-sans text-xs font-light uppercase tracking-widest text-stone">
               Exhibitions with Bulgari in London
             </p>
-            <ul className="mt-3 space-y-2 font-sans text-sm font-light leading-relaxed text-ink/70">
-              <li>
+            <div className="mt-4 grid grid-cols-1 gap-8 sm:grid-cols-3">
+              <div>
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-card">
+                  <Image
+                    src="https://cdn.sanity.io/images/jncu3emy/production/b12f321d7dbb5d3494e123d4fb66f008e1439c06-2268x4032.jpg?w=600&h=800&fit=crop&auto=format"
+                    alt="Into the Future by Mary Pye at Bvlgari, London"
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
                 <a
                   href="https://www.blowoutmagazine.com/blowout-art/2025/6/27/bulgari-into-the-future-exhibition-london-with-mary-pye-hosted-meso-ventures"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline underline-offset-4 hover:text-ink"
+                  className="mt-3 block font-sans text-sm font-light text-ink underline underline-offset-4 hover:text-ink/70"
                 >
                   Into the Future
                 </a>
-                , Mary Pye
-              </li>
-              <li>
+                <p className="mt-1 font-sans text-xs font-light text-ink/70">
+                  Mary Pye
+                </p>
+              </div>
+              <div>
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-card">
+                  <Image
+                    src="https://cdn.sanity.io/images/jncu3emy/production/1bfa30cc713178fadc172447ecd317c122a4d18c-3000x2955.jpg?w=600&h=800&fit=crop&auto=format"
+                    alt="Tiyana Mitchell Bvlgari Exhibition 2026 What Light Remains"
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
                 <a
                   href="https://www.impulsemagazine.com/articles/tiyana-mitchell-what-light-remains-at-bulgari-and-meso-ventures"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline underline-offset-4 hover:text-ink"
+                  className="mt-3 block font-sans text-sm font-light text-ink underline underline-offset-4 hover:text-ink/70"
                 >
                   What Light Remains
                 </a>
-                , Tiyana Mitchell
-              </li>
-              <li>
+                <p className="mt-1 font-sans text-xs font-light text-ink/70">
+                  Tiyana Mitchell
+                </p>
+              </div>
+              <div>
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-card">
+                  <Image
+                    src="https://cdn.sanity.io/images/jncu3emy/production/b80c93537541874ffc3dd9eddee85c1e6aae26eb-1365x2048.webp?w=600&h=800&fit=crop&auto=format"
+                    alt="The Art of Colour by Lydia Hamblet at Bvlgari, London"
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
                 <Link
                   href="/magazine/meso-ventures-and-bulgari-the-art-of-colour-with-lydia-hamblet"
-                  className="underline underline-offset-4 hover:text-ink"
+                  className="mt-3 block font-sans text-sm font-light text-ink underline underline-offset-4 hover:text-ink/70"
                 >
                   The Art of Colour
                 </Link>
-                , Lydia Hamblet
-              </li>
-            </ul>
+                <p className="mt-1 font-sans text-xs font-light text-ink/70">
+                  Lydia Hamblet
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
