@@ -123,6 +123,109 @@ export default async function AboutPage() {
 
         <div className="mt-20 border-t border-mist pt-16">
           <h2 className="font-serif text-2xl italic font-light text-ink">
+            Press &amp; Programme
+          </h2>
+
+          <div className="mt-8">
+            <p className="font-sans text-xs font-light uppercase tracking-widest text-stone">
+              Press
+            </p>
+            <p className="mt-3 max-w-xl font-sans text-sm font-light leading-relaxed text-ink/70">
+              &ldquo;Energetic, international, nonstop.&rdquo; —{" "}
+              <a
+                href="https://www.frieze.com/article/frieze-connect-member-spotlight-eirini-meze"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4 hover:text-ink"
+              >
+                Frieze Connect Member Spotlight: Eirini Meze
+              </a>
+              , July 2026
+            </p>
+          </div>
+
+          <div className="mt-10">
+            <p className="font-sans text-xs font-light uppercase tracking-widest text-stone">
+              Frieze Connect — organised by Eirini
+            </p>
+            <ul className="mt-3 max-w-xl space-y-2 font-sans text-sm font-light leading-relaxed text-ink/70">
+              <li>
+                <a
+                  href="https://www.frieze.com/event/new-york-private-collection-visit-priya-karani"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-ink"
+                >
+                  Private Collection Visit with Priya Karani
+                </a>
+                , New York — September 2025
+              </li>
+              <li>
+                <a
+                  href="https://www.frieze.com/event/london-next-gen-collectors-how-become-insider-art-world"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-ink"
+                >
+                  Next Gen Collectors: How to Become an Insider
+                </a>
+                , London — June 2026
+              </li>
+              <li>
+                Summer Brunch &amp; Private Walkthrough of{" "}
+                <Link
+                  href="/magazine/meso-ventures-and-bulgari-present-what-light-remains-tiyana-mitchell"
+                  className="underline underline-offset-4 hover:text-ink"
+                >
+                  What Light Remains
+                </Link>
+                , at the Bulgari London flagship — June 2026
+              </li>
+            </ul>
+          </div>
+
+          <div className="mt-10">
+            <p className="font-sans text-xs font-light uppercase tracking-widest text-stone">
+              Exhibitions with Bulgari in London
+            </p>
+            <ul className="mt-3 max-w-xl space-y-2 font-sans text-sm font-light leading-relaxed text-ink/70">
+              <li>
+                <a
+                  href="https://www.blowoutmagazine.com/blowout-art/2025/6/27/bulgari-into-the-future-exhibition-london-with-mary-pye-hosted-meso-ventures"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-ink"
+                >
+                  Into the Future
+                </a>
+                , Mary Pye
+              </li>
+              <li>
+                <a
+                  href="https://www.impulsemagazine.com/articles/tiyana-mitchell-what-light-remains-at-bulgari-and-meso-ventures"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-ink"
+                >
+                  What Light Remains
+                </a>
+                , Tiyana Mitchell
+              </li>
+              <li>
+                <Link
+                  href="/magazine/meso-ventures-and-bulgari-the-art-of-colour-with-lydia-hamblet"
+                  className="underline underline-offset-4 hover:text-ink"
+                >
+                  The Art of Colour
+                </Link>
+                , Lydia Hamblet
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-20 border-t border-mist pt-16">
+          <h2 className="font-serif text-2xl italic font-light text-ink">
             Advisory Philosophy
           </h2>
           <div className="mt-6 max-w-2xl space-y-6 font-sans text-sm font-light leading-relaxed text-ink/70">
