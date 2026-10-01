@@ -163,11 +163,21 @@ export default async function AboutPage() {
                   FAACII
                 </p>
               </div>
-              <p className="max-w-xs font-sans text-xs font-light text-ink/70">
-                Former Board Member, Amelie &amp; Daniel Linsey Foundation —
-                fundraising balls at The Peninsula London, auctions by
-                Christie&rsquo;s
-              </p>
+              <div className="flex items-center gap-3">
+                <div className="relative h-9 w-20 shrink-0">
+                  <Image
+                    src="/logos/amelie-daniel-linsey-foundation.png"
+                    alt="Amelie & Daniel Linsey Foundation"
+                    fill
+                    sizes="80px"
+                    className="object-contain object-left"
+                  />
+                </div>
+                <p className="max-w-[14rem] font-sans text-xs font-light text-ink/70">
+                  Former Board Member — fundraising balls at The Peninsula
+                  London, auctions by Christie&rsquo;s
+                </p>
+              </div>
             </div>
           </div>
 
