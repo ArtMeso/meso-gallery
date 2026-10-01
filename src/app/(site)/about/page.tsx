@@ -128,9 +128,101 @@ export default async function AboutPage() {
 
           <div className="mt-8">
             <p className="font-sans text-xs font-light uppercase tracking-widest text-stone">
-              Press
+              Credentials
             </p>
-            <p className="mt-3 max-w-xl font-sans text-sm font-light leading-relaxed text-ink/70">
+            <div className="mt-4 flex flex-wrap items-center gap-x-10 gap-y-4">
+              <div className="flex items-center gap-3">
+                <div className="relative h-9 w-24 shrink-0">
+                  <Image
+                    src="/logos/frieze.png"
+                    alt="Frieze"
+                    fill
+                    sizes="96px"
+                    className="object-contain object-left"
+                  />
+                </div>
+                <p className="font-sans text-xs font-light text-ink/70">
+                  Global Ambassador,
+                  <br />
+                  Frieze Connect
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="relative h-9 w-9 shrink-0">
+                  <Image
+                    src="/logos/faacii.png"
+                    alt="FAACII"
+                    fill
+                    sizes="36px"
+                    className="object-contain"
+                  />
+                </div>
+                <p className="font-sans text-xs font-light text-ink/70">
+                  Chairwoman &amp; CEO,
+                  <br />
+                  FAACII
+                </p>
+              </div>
+              <p className="max-w-xs font-sans text-xs font-light text-ink/70">
+                Former Board Member, Amelie &amp; Daniel Linsey Foundation —
+                fundraising balls at The Peninsula London, auctions by
+                Christie&rsquo;s
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10">
+            <p className="font-sans text-xs font-light uppercase tracking-widest text-stone">
+              As Featured In
+            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <div className="relative h-7 w-20 shrink-0">
+                <Image
+                  src="/logos/frieze.png"
+                  alt="Frieze"
+                  fill
+                  sizes="80px"
+                  className="object-contain object-left"
+                />
+              </div>
+              <div className="relative h-9 w-20 shrink-0">
+                <Image
+                  src="/logos/mayfair-times.png"
+                  alt="Mayfair Times"
+                  fill
+                  sizes="80px"
+                  className="object-contain object-left"
+                />
+              </div>
+              <div className="relative h-5 w-28 shrink-0">
+                <Image
+                  src="/logos/blowout-magazine.png"
+                  alt="Blowout Magazine"
+                  fill
+                  sizes="112px"
+                  className="object-contain object-left"
+                />
+              </div>
+              <div className="relative h-7 w-16 shrink-0">
+                <Image
+                  src="/logos/mid-day.png"
+                  alt="Mid-Day"
+                  fill
+                  sizes="64px"
+                  className="object-contain object-left"
+                />
+              </div>
+              <div className="relative h-6 w-24 shrink-0">
+                <Image
+                  src="/logos/impulse.png"
+                  alt="Impulse"
+                  fill
+                  sizes="96px"
+                  className="object-contain object-left"
+                />
+              </div>
+            </div>
+            <p className="mt-5 max-w-xl font-sans text-sm font-light leading-relaxed text-ink/70">
               &ldquo;Energetic, international, nonstop.&rdquo; —{" "}
               <a
                 href="https://www.frieze.com/article/frieze-connect-member-spotlight-eirini-meze"
