@@ -50,7 +50,8 @@ export default function TheInheritedSurfaceEventPage() {
           <div>
             <dt className="eyebrow">Venue</dt>
             <dd className="mt-2 font-sans text-sm font-light text-ink">
-              Address shared with confirmed guests closer to the date
+              Emirates Hills — full address shared with confirmed guests
+              closer to the date
             </dd>
           </div>
           <div className="sm:col-span-2">
