@@ -50,8 +50,8 @@ export default function TheInheritedSurfaceEventPage() {
           <div>
             <dt className="eyebrow">Venue</dt>
             <dd className="mt-2 font-sans text-sm font-light text-ink">
-              Emirates Hills — full address shared with confirmed guests
-              closer to the date
+              The Progressive Art Gallery, Villa No. 348, Al Wasl Road,
+              Jumeirah 1, Dubai
             </dd>
           </div>
           <div className="sm:col-span-2">
