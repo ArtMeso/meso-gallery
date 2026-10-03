@@ -44,7 +44,7 @@ export default function TheInheritedSurfaceEventPage() {
           <div>
             <dt className="eyebrow">Date &amp; Time</dt>
             <dd className="mt-2 font-sans text-sm font-light text-ink">
-              To be confirmed
+              From 6pm, Saturday 10 October
             </dd>
           </div>
           <div>
